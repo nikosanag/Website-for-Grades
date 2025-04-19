@@ -1,0 +1,52 @@
+# Node modules
+node_modules/
+
+# Build outputs
+.next/
+out/
+dist/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log
+
+# Dependency directories
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Vite / Next.js / Turbo traces
+.cache/
+.turbo/
+.vercel/
+.vscode/
+
+# Test coverage
+coverage/
+*.lcov
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Env config
+.env
+.env.local
+.env.*.local
+
+# Custom backend / uploads (if applicable)
+public/uploads/
+uploads/
+*.sqlite
+
+# Editor settings
+.idea/
+*.swp
+
+# Misc
+*.tgz
+*.zip
+*.tmp
