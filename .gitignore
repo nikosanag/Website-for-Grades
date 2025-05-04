@@ -1,52 +1,49 @@
-# Node modules
-node_modules/
+# Dependencies
+/node_modules
+/.pnp
+.pnp.js
 
-# Build outputs
-.next/
-out/
-dist/
+# Testing
+/coverage
 
-# Logs
+# Next.js
+/.next/
+/out/
+
+# Production
+/build
+/dist
+
+# Misc
+.DS_Store
+*.pem
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Debug
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-pnpm-debug.log*
-*.log
 
-# Dependency directories
-package-lock.json
-yarn.lock
-pnpm-lock.yaml
-
-# Vite / Next.js / Turbo traces
-.cache/
-.turbo/
-.vercel/
-.vscode/
-
-# Test coverage
-coverage/
-*.lcov
-
-# OS-specific
-.DS_Store
-Thumbs.db
-
-# Env config
-.env
-.env.local
-.env.*.local
-
-# Custom backend / uploads (if applicable)
-public/uploads/
-uploads/
-*.sqlite
-
-# Editor settings
+# IDE
 .idea/
+.vscode/
 *.swp
+*.swo
 
-# Misc
-*.tgz
-*.zip
-*.tmp
+# Typescript
+*.tsbuildinfo
+
+# Vercel
+.vercel
+
+# PWA
+public/sw.js
+public/workbox-*.js
+public/worker-*.js
+public/sw.js.map
+public/workbox-*.js.map
+public/worker-*.js.map
