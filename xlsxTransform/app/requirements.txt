@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+pandas
+openpyxl
+numpy
+python-multipart
+python-jose[cryptography]  # For JWT token handling
+passlib[bcrypt]  # For password hashing

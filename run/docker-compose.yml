@@ -1,0 +1,164 @@
+version: '3.8'
+
+services:
+
+  excel-api:
+    build:
+      context: ../xlsxTransform/
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - ../xlsxTransform/app:/app
+    networks:
+      - clearsky
+
+  grade-database:
+    image: mongo:latest
+    container_name: grade-database
+    ports:
+      - "3007:27017"
+    restart: unless-stopped
+    networks:
+      - clearsky
+
+  grade-service:
+    build:
+      context: ../grade-service
+    container_name: grade-service
+    ports:
+      - "3008:3008"
+    environment:
+      - MONGO_URI=mongodb://grade-database:27017/gradedb
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+    depends_on:
+      - grade-database
+      - redis
+    restart: unless-stopped
+    networks:
+      - clearsky
+
+  login-database:
+    image: mongo:latest
+    container_name: login-database
+    ports:
+      - "3002:27017"
+    restart: unless-stopped
+    networks:
+      - clearsky
+
+  login-service:
+    build:
+      context: ../login-service
+    container_name: login-service
+    ports:
+      - "3001:3001"
+    environment:
+      - MONGO_URI=mongodb://login-database:27017/logindb
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+    depends_on:
+      - login-database
+      - redis
+    restart: unless-stopped
+    networks:
+      - clearsky
+
+  user-management-database:
+    image: mongo:latest
+    container_name: user-management-database
+    ports:
+      - "3003:27017"
+    restart: unless-stopped
+    networks:
+      - clearsky
+
+  sync-service:
+    build:
+      context: ../database-syncing-service
+    container_name: sync-service
+    environment:
+      - USER_DB_URI=mongodb://user-management-database:27017/userdb
+      - LOGIN_DB_URI=mongodb://login-database:27017/logindb
+      - RABBITMQ_URL=amqp://rabbitmq
+    depends_on:
+      - rabbitmq
+      - user-management-database
+      - login-database
+    restart: unless-stopped
+    networks:
+      - clearsky
+
+  user-management-service:
+    build:
+      context: ../user-management-service
+    container_name: user-management-service
+    ports:
+      - "3004:3004"
+    environment:
+      - MONGO_URI=mongodb://user-management-database:27017/userdb
+    depends_on:
+      - user-management-database
+    restart: unless-stopped
+    networks:
+      - clearsky
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    restart: unless-stopped
+    networks:
+      - clearsky
+
+  redis:
+    image: redis:alpine
+    container_name: redis
+    ports:
+      - "6379:6379"
+    restart: unless-stopped
+    networks:
+      - clearsky
+
+  review-database:
+    image: mongo
+    container_name: review-database
+    ports:
+      - "3006:27017"
+    networks:
+      - clearsky
+
+  review-service:
+    build:
+      context: ../reviews
+    container_name: review-service
+    ports:
+      - "3005:3005"
+    environment:
+      - MONGO_URI=mongodb://review-database:27017/reviewdb
+    depends_on:
+      - review-database
+    networks:
+      - clearsky
+
+
+  frontend:
+    build:
+      context: ../microservice02-frontend-nextjs
+    container_name: frontend
+    ports:
+      - "3000:3000"
+    restart: unless-stopped
+    networks:
+      - clearsky
+    depends_on:
+      - login-service
+      - user-management-service
+      - grade-service
+
+networks:
+  clearsky:
+    driver: bridge
