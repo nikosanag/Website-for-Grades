@@ -1,25 +1,18 @@
+# Frontend (Next.js)
+
+This folder contains the Next.js frontend for the NTUA ECE SAAS 2025 Project. It provides a modern, responsive user interface and communicates with backend microservices.
+
 ## Getting Started
-
-```bash
--Prerequisites
-PS C:\_Projects\react-path\saas25-01\frontend-nextjs> node -v
-v22.14.0
-
--Installation Details
-npm install
-npm run dev
-
--Pages
-http://localhost:3000/dashboard/student/ (s-s)
-http://localhost:3000/dashboard/institution/ (a-a)
-http://localhost:3000/dashboard/instructor/ (i-i)
-
--Creation of project / notes
-npx create-next-app@latest clearsky-portal --app --typescript --tailwind --eslint
-cd clearsky-portal
-npm install @heroicons/react clsx
-npm install @vercel/postgres zod
-npm install chart.js react-chartjs-2
-```
+- Prerequisites: Node.js v22.14.0 or later
+- Install dependencies: `npm install`
+- Start development server: `npm run dev`
+- Main pages:
+  - `/dashboard/student/`
+  - `/dashboard/institution/`
+  - `/dashboard/instructor/`
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+---
+
+For setup and usage, refer to the main [README](../README.md).

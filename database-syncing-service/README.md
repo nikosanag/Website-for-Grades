@@ -1,7 +1,11 @@
-# MICROSERVICE 04
+# Database Syncing Service
 
-## Database syncing
+This service is responsible for synchronizing data between distributed components of the NTUA ECE SAAS 2025 Project. It ensures data consistency and reliability across the platform, using RabbitMQ for messaging.
 
-This microservice is used to make sure that databses with the same collections also have the same data. It also uses rabbitmq, which makes use of these ports : "5672:5672" "15672:15672"
+- Automatically syncs collections across databases
+- No public endpoints exposed; operates in the background
+- Uses RabbitMQ (ports 5672, 15672)
 
-The syncing happens automatically and no endpoints are exposed
+---
+
+For setup and usage, refer to the main [README](../README.md).

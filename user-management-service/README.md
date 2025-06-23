@@ -1,5 +1,11 @@
-# MICROSERVICE 01
+# User Management Service
 
-## User Management
+Responsible for user registration, profile management, and permissions in the NTUA ECE SAAS 2025 Project. Built as a microservice for modularity and scalability.
 
-This microservice exposes an api endpoint that is used for registering new users by non-Student accounts. The api endpoint runs on port 3004 and the database is on port 3003. The api endpoint is /api/register
+- Exposes API endpoint for registering new users (non-Student accounts)
+- API runs on port 3004, database on port 3003
+- Endpoint: `/api/register`
+
+---
+
+For setup and usage, refer to the main [README](../README.md).

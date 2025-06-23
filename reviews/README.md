@@ -1,10 +1,13 @@
-# MICROSERVICE 05
+# Reviews Service
 
-## Reviews
+Handles user reviews, feedback, and related data for the NTUA ECE SAAS 2025 Project. Designed as a microservice for easy integration and scalability.
 
-exposes 3 api endpoints
-- /api/uploadReviews
-- /api/viewStudentReviews
-- /api/viewInstructorReviews
+- Exposes API endpoints:
+  - `/api/uploadReviews`
+  - `/api/viewStudentReviews`
+  - `/api/viewInstructorReviews`
+- API runs on port 3005, database on port 3006
 
-Uses ports 3005 for the api and 3006 for the database
+---
+
+For setup and usage, refer to the main [README](../README.md).

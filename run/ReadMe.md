@@ -1,4 +1,10 @@
-Εδώ υπάρχει docker-compose.yml το οποίο χρησιμοποιείται για να κάνουμε dockerize όλα τα microservices
+# Run Scripts
 
-Το start.sh (ή .bat) στύνει τα docker 
-Το start_on_local.sh (ή .bat) στηνει docker αφού πρώτα αλλάξει όλα τα localhost με την local ip του μηχανήματος μας. Προφανώς αν η ip σου αλλάξει ή θες να το τρέξεις πάλι σε localhost τότε πρέπει να ξαναπάρεις τα αρχεία από εδώ και να τρέξεις το start.sh αφού όλα τα localhost θα έχουν αντικατασταθεί με την προηγούμενη ip σου
+This directory contains scripts and utilities to start, stop, and manage the NTUA ECE SAAS 2025 Project services. Use these scripts to launch the application in your environment.
+
+- Includes Docker Compose and local start scripts
+- Supports both Dockerized and local development setups
+
+---
+
+For more details, see the main [README](../README.md).

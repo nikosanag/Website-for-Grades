@@ -1,7 +1,11 @@
-# MICROSERVICE 03
+# Login Service
 
-## Login 
+Manages user authentication, session handling, and security for the NTUA ECE SAAS 2025 Project. Built as a standalone microservice for flexibility and security.
 
-This microservice exposes an api endpoint that is used for logging in and out. The api endpoint runs on port 3001 and the database is on port 3002. The api endpoints are /api/login and /api/logout
+- Exposes API endpoints for login and logout
+- API runs on port 3001, database on port 3002
+- Uses Redis (port 6379) for token consistency
 
-To ensure token consistency between microservies we use redis, exposed on port 6379
+---
+
+For setup and usage, refer to the main [README](../README.md).
