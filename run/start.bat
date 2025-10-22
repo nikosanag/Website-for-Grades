@@ -1,3 +1,4 @@
+: <<'BATCH'
 @echo off
 setlocal enabledelayedexpansion
 
@@ -54,3 +55,8 @@ echo 📨 RabbitMQ UI: http://localhost:15672 (guest/guest)
 
 endlocal
 pause
+
+GOTO :EOF
+BATCH
+echo "This script is for Windows (cmd.exe). On Linux/macOS, run: ./start.sh"
+exit 1

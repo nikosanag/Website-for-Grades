@@ -27,10 +27,10 @@ export default function UserManagementPage() {
 
         if (type === 'Student') {
           if (!externalId) return setMessage('⚠️ Student ID is required.')
-            url = 'http://localhost:3004/api/register'
+            url = 'http://192.168.2.11:3004/api/register'
             body = { role: type, username, password, id: externalId }
         } else {
-          url = 'http://localhost:3004/api/register/random'
+          url = 'http://192.168.2.11:3004/api/register/random'
           body = { role: type, username, password }
         }
 
@@ -73,7 +73,7 @@ export default function UserManagementPage() {
           body.id = externalId
         }
 
-        const res = await fetch('http://localhost:3004/api/register/update-password', {
+        const res = await fetch('http://192.168.2.11:3004/api/register/update-password', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

@@ -5,8 +5,8 @@ import json
 import csv
 
 # Config
-LOGIN_URL = "http://localhost:3001/api/login"
-BASE_API_URL = "http://localhost:3004/api"
+LOGIN_URL = "http://192.168.2.11:3001/api/login"
+BASE_API_URL = "http://192.168.2.11:3004/api"
 HEADERS = {"Content-Type": "application/json"}
 
 # Credentials για login (Representative)

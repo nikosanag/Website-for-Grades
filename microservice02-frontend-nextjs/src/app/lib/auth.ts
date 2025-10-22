@@ -2,7 +2,7 @@
 // For host frontend, Docker backend: use host.docker.internal
 export async function loginWithMicroservice(identifier: string, password: string) {
   try {
-    const res = await fetch('http://localhost:3001/api/login', {
+    const res = await fetch('http://192.168.2.11:3001/api/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

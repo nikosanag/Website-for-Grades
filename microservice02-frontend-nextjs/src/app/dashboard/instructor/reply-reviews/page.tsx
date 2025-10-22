@@ -48,7 +48,7 @@ export default function ReplyReviewPage() {
         
         // Since there's no specific endpoint for a single review,
         // we'll get all instructor reviews and find the one we need
-        const response = await fetch(`http://localhost:3005/api/viewInstructorReviews`, {
+        const response = await fetch(`http://192.168.2.11:3005/api/viewInstructorReviews`, {
           headers: {
             'x-observatory-auth': token || '',
             'Accept': 'application/json',
@@ -116,7 +116,7 @@ export default function ReplyReviewPage() {
       
       // We need to use the same endpoint that creates reviews initially,
       // since there's no specific endpoint for updates
-      const response = await fetch(`http://localhost:3005/api/postReview`, {
+      const response = await fetch(`http://192.168.2.11:3005/api/postReview`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

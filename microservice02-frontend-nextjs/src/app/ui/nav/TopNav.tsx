@@ -11,7 +11,7 @@ export default function TopNav() {
   async function handleLogout() {
     const token = localStorage.getItem('token');
     if (token) {
-      await fetch('http://localhost:3001/api/logout', {
+      await fetch('http://192.168.2.11:3001/api/logout', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ token }),

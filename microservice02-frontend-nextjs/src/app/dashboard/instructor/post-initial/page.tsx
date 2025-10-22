@@ -14,8 +14,8 @@ export default function PostInitialGradesPage() {
   
   // Define API endpoints - this allows easier configuration
   // Using 5001 as an alternative port based on the error
-  const GRADE_SERVICE_URL = process.env.NEXT_PUBLIC_GRADE_SERVICE_URL || 'http://localhost:3008';
-  const XLSX_TRANSFORM_URL = process.env.NEXT_PUBLIC_XLSX_TRANSFORM_URL || 'http://localhost:8000';
+  const GRADE_SERVICE_URL = process.env.NEXT_PUBLIC_GRADE_SERVICE_URL || 'http://192.168.2.11:3008';
+  const XLSX_TRANSFORM_URL = process.env.NEXT_PUBLIC_XLSX_TRANSFORM_URL || 'http://192.168.2.11:8000';
   
   // Debug log API endpoints on component mount and check services
   useEffect(() => {

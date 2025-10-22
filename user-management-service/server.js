@@ -10,7 +10,7 @@ const app = express();
 const PORT = 3004;
 
 app.use(cors({
-    origin: 'http://localhost:3000',
+    origin: 'http://192.168.2.11:3000',
     credentials: true
 }));
 app.use(bodyParser.json());
@@ -30,6 +30,6 @@ app.use(registerRoute);
 // Start server after DB connection is ready
 mongoose.connection.once('open', () => {
     app.listen(PORT, () => {
-        console.log(`🚀 User Managment service running at http://localhost:${PORT}`);
+        console.log(`🚀 User Managment service running at http://192.168.2.11:${PORT}`);
     });
 });

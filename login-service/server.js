@@ -15,7 +15,7 @@ const PORT = 3001;
 
 // Enable CORS for all origins (development)
 app.use(cors({
-  origin: 'http://localhost:3000',
+  origin: 'http://192.168.2.11:3000',
   credentials: true
 }));
 
@@ -39,6 +39,6 @@ app.use(logoutRoute);
 // Start server after DB connection is ready
 mongoose.connection.once('open', () => {
     app.listen(PORT, () => {
-        console.log(`🚀 Login service running at http://localhost:${PORT}`);
+        console.log(`🚀 Login service running at http://192.168.2.11:${PORT}`);
     });
 });

@@ -3,8 +3,8 @@
 import requests
 import json
 
-BASE_URL = "http://localhost:3008/api"
-LOGIN_URL = "http://localhost:3001/api/login"
+BASE_URL = "http://192.168.2.11:3008/api"
+LOGIN_URL = "http://192.168.2.11:3001/api/login"
 UPLOAD_URL = f"{BASE_URL}/grades/upload"
 
 HEADERS = {"Content-Type": "application/json"}
