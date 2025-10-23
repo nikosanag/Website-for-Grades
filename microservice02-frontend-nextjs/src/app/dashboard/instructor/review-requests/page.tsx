@@ -30,7 +30,7 @@ export default function ReviewRequestsPage() {
       setLoading(true);
       setError(null);
       try {
-        const token = localStorage.getItem('token');        const response = await fetch('http://192.168.2.11:3005/api/viewInstructorReviews', {
+        const token = localStorage.getItem('token');        const response = await fetch('http://localhost:3005/api/viewInstructorReviews', {
           method: "GET",
           headers: {
             'x-observatory-auth': token || '',

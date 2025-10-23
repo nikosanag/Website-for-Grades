@@ -11,8 +11,8 @@ export default function PostFinalGradesPage() {
   const [confirmEnabled, setConfirmEnabled] = useState(false);
   const [file, setFile] = useState<File | null>(null);
   const [isLoading, setIsLoading] = useState(false); // Loading state for spinner  // Define API endpoints - this allows easier configuration
-  const GRADE_SERVICE_URL = process.env.NEXT_PUBLIC_GRADE_SERVICE_URL || 'http://192.168.2.11:3008';
-  const XLSX_TRANSFORM_URL = process.env.NEXT_PUBLIC_XLSX_TRANSFORM_URL || 'http://192.168.2.11:8000';
+  const GRADE_SERVICE_URL = process.env.NEXT_PUBLIC_GRADE_SERVICE_URL || 'http://localhost:3008';
+  const XLSX_TRANSFORM_URL = process.env.NEXT_PUBLIC_XLSX_TRANSFORM_URL || 'http://localhost:8000';
   
   // Debug log API endpoints on component mount
   useEffect(() => {

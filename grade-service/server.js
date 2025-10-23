@@ -11,7 +11,7 @@ const PORT = 3008;
 
 // Enable CORS for development
 app.use(cors({
-  origin: 'http://192.168.2.11:3000',
+  origin: 'http://localhost:3000',
   credentials: true
 }));
 
@@ -30,6 +30,6 @@ app.use(gradeRoute);
 // Start server when Mongo is ready
 mongoose.connection.once('open', () => {
     app.listen(PORT, () => {
-        console.log(`🚀 Grade service running at http://192.168.2.11:${PORT}`);
+        console.log(`🚀 Grade service running at http://localhost:${PORT}`);
     });
 });

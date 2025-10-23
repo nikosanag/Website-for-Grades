@@ -5,10 +5,10 @@ python3 ./utils/move_to_local_network.py
 set -e
 
 echo "🐳 Building Docker containers..."
-docker-compose build
+docker compose build
 
 echo "🚀 Starting services with Docker Compose..."
-docker-compose up -d
+docker compose up -d
 
 echo "⏳ Waiting for MongoDB to initialize..."
 sleep 30

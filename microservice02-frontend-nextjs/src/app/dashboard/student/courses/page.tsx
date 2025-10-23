@@ -164,7 +164,7 @@ export default function StudentCoursesPage() {
           setCourses([]);
           return;
         }
-        const res = await fetch('http://192.168.2.11:3008/api/courses', {
+        const res = await fetch('http://localhost:3008/api/courses', {
           headers: { 'x-observatory-auth': token }
         });
         if (res.status === 401 || res.status === 403) {
@@ -179,7 +179,7 @@ export default function StudentCoursesPage() {
         // For each course, check if the user has grades
         const coursesWithGrades = await Promise.all(
           coursesArray.map(async (course) => {
-            const gradesRes = await fetch(`http://192.168.2.11:3008/api/grades/student/${course.courseId}`, {
+            const gradesRes = await fetch(`http://localhost:3008/api/grades/student/${course.courseId}`, {
               headers: { 'x-observatory-auth': token }
             });
             if (gradesRes.status === 401 || gradesRes.status === 403) {
@@ -192,7 +192,7 @@ export default function StudentCoursesPage() {
               // If course is closed, check for review messages
               if (course.status !== 'open') {
                 try {
-                  const reviewsRes = await fetch('http://192.168.2.11:3005/api/viewStudentReviews', {
+                  const reviewsRes = await fetch('http://localhost:3005/api/viewStudentReviews', {
                     headers: { 'x-observatory-auth': token }
                   });
                   if (reviewsRes.status === 401 || reviewsRes.status === 403) {
@@ -252,13 +252,13 @@ export default function StudentCoursesPage() {
     try {
       const token = localStorage.getItem('token') ?? '';
       // Fetch grades for this course (personal grades)
-      const gradesRes = await fetch(`http://192.168.2.11:3008/api/grades/student/${courseId}`, {
+      const gradesRes = await fetch(`http://localhost:3008/api/grades/student/${courseId}`, {
         headers: { 'x-observatory-auth': token }
       });
       const grades = gradesRes.ok ? await gradesRes.json() : [];
       setDetailedGrades(grades); // This is the student's personal grades
       // Fetch distribution for this course (for the plot)
-      const distRes = await fetch(`http://192.168.2.11:3008/api/grades/distribution/${courseId}`);
+      const distRes = await fetch(`http://localhost:3008/api/grades/distribution/${courseId}`);
       const dist = distRes.ok ? await distRes.json() : {};
       setGradeDistributions(dist); // This is the distribution for the plot
     } catch {
@@ -280,7 +280,7 @@ export default function StudentCoursesPage() {
     try {
       const token = localStorage.getItem('token') ?? '';
       // Fetch student reviews
-      const reviewsRes = await fetch('http://192.168.2.11:3005/api/viewStudentReviews', {
+      const reviewsRes = await fetch('http://localhost:3005/api/viewStudentReviews', {
         headers: {
           'x-observatory-auth': token
         }
@@ -354,7 +354,7 @@ export default function StudentCoursesPage() {
       let studentName = '';
       
       try {        // First try to get user info from grade data for this course        console.log(`Fetching initial grades data for courseId: ${currentCourse.courseId}`);
-        const gradesRes = await fetch(`http://192.168.2.11:3008/api/grades/student/${currentCourse.courseId}`, {
+        const gradesRes = await fetch(`http://localhost:3008/api/grades/student/${currentCourse.courseId}`, {
           method: 'GET',
           headers: { 
             'x-observatory-auth': token,
@@ -401,7 +401,7 @@ export default function StudentCoursesPage() {
           // If token parsing didn't work, try to fetch from user info endpoint
           if (!studentId || !studentName) {
             // Fetch the user info using the token (an API endpoint that returns user details)
-            const userInfoRes = await fetch('http://192.168.2.11:3001/api/user-info', {
+            const userInfoRes = await fetch('http://localhost:3001/api/user-info', {
               headers: { 'x-observatory-auth': token }
             }).catch(() => null);
             
@@ -444,7 +444,7 @@ export default function StudentCoursesPage() {
       let professorName = '';
       let professorId = '';
       
-      try {        const gradesRes = await fetch(`http://192.168.2.11:3008/api/grades/student/${currentCourse.courseId}`, {
+      try {        const gradesRes = await fetch(`http://localhost:3008/api/grades/student/${currentCourse.courseId}`, {
           method: 'GET',
           headers: { 
             'x-observatory-auth': token,
@@ -528,7 +528,7 @@ export default function StudentCoursesPage() {
         console.log('Sending review request to API:', reviewData);
         
         // Submit the review request to the correct API endpoint
-        const reviewRes = await fetch('http://192.168.2.11:3005/api/postReview', {
+        const reviewRes = await fetch('http://localhost:3005/api/postReview', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -609,7 +609,7 @@ export default function StudentCoursesPage() {
         console.log('Using fallback review data:', reviewData);
         
         // Submit the review request to the correct API endpoint
-        const reviewRes = await fetch('http://192.168.2.11:3005/api/postReview', {
+        const reviewRes = await fetch('http://localhost:3005/api/postReview', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

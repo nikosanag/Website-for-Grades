@@ -58,7 +58,7 @@ export default function InstructorGradeStatsPage() {
         if (!token) {
           throw new Error('Authentication token missing. Please log in again.');
         }
-        const response = await fetch('http://192.168.2.11:3008/api/courses', {
+        const response = await fetch('http://localhost:3008/api/courses', {
           method: 'GET',
           headers: {
             'Authorization': `${token}`,
@@ -104,7 +104,7 @@ export default function InstructorGradeStatsPage() {
     async function fetchChartData() {
       if (!isMounted) return;
       try {
-        const response = await fetch(`http://192.168.2.11:3008/api/grades/distribution/${encodeURIComponent(selectedCourseId ?? '')}`, {
+        const response = await fetch(`http://localhost:3008/api/grades/distribution/${encodeURIComponent(selectedCourseId ?? '')}`, {
           method: 'GET',
           headers: {
             'Authorization': `${localStorage.getItem('token') || ''}`,
